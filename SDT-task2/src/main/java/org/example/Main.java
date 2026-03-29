@@ -63,6 +63,7 @@ public class Main {
         System.out.println("0. Exit");
         System.out.println("you're welcome");
         System.out.print("Enter your choice: ");
+        System.out.print("Thank you");
     }
 
     private static void addStudent() {

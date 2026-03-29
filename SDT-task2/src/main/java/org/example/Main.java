@@ -36,6 +36,9 @@ public class Main {
                 case 6:
                     showTopStudent();
                     break;
+                case 7:
+                    rankStudents();
+                    break;
                 case 0:
                     System.out.println("Exiting system...");
                     break;
@@ -56,6 +59,7 @@ public class Main {
         System.out.println("4. Find Student by ID");
         System.out.println("5. Delete Student");
         System.out.println("6. Show Top Student");
+        System.out.println("7. Rank Students by Performance (High to Low)");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -151,5 +155,21 @@ public class Main {
 
         System.out.println("Top Student:");
         topStudent.printDetails();
+    }
+    private static void rankStudents() {
+        if (students.isEmpty()) {
+            System.out.println("No students to rank.");
+            return;
+        }
+
+        ArrayList<Student> sortedList = new ArrayList<>(students);
+
+        sortedList.sort((s1, s2) -> Double.compare(s2.calculateAverage(), s1.calculateAverage()));
+
+        System.out.println("\n--- Ranking (Top to Bottom) ---");
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print((i + 1) + ". ");
+            sortedList.get(i).printDetails();
+        }
     }
 }

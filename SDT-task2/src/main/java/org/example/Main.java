@@ -1,7 +1,5 @@
 package org.example;
 
-import org.example.Student;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -62,7 +60,7 @@ public class Main {
         System.out.println("7. Rank Students by Performance (High to Low)");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
-        System.out.print("you're welcome");
+        System.out.print("have a nice day");
     }
 
     private static void addStudent() {

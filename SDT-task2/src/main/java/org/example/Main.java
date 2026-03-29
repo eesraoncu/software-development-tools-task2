@@ -30,6 +30,12 @@ public class Main {
                 case 4:
                     findStudentById();
                     break;
+                case 5:
+                    deleteStudent();
+                    break;
+                case 6:
+                    showTopStudent();
+                    break;
                 case 0:
                     System.out.println("Exiting system...");
                     break;
@@ -48,6 +54,8 @@ public class Main {
         System.out.println("2. Add Grade to Student");
         System.out.println("3. List All Students");
         System.out.println("4. Find Student by ID");
+        System.out.println("5. Delete Student");
+        System.out.println("6. Show Top Student");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -113,5 +121,35 @@ public class Main {
             }
         }
         return null;
+    }
+    private static void deleteStudent() {
+        System.out.print("Enter student ID to delete: ");
+        int id = scanner.nextInt();
+
+        Student student = findStudentObject(id);
+
+        if (student != null) {
+            students.remove(student);
+            System.out.println("Student deleted successfully!");
+        } else {
+            System.out.println("Student not found!");
+        }
+    }
+    private static void showTopStudent() {
+        if (students.isEmpty()) {
+            System.out.println("No students available.");
+            return;
+        }
+
+        Student topStudent = students.get(0);
+
+        for (Student s : students) {
+            if (s.calculateAverage() > topStudent.calculateAverage()) {
+                topStudent = s;
+            }
+        }
+
+        System.out.println("Top Student:");
+        topStudent.printDetails();
     }
 }
